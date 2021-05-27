@@ -9,7 +9,7 @@ trigger:
 pool: Default
 
 variables:
-  solution: '**/C#/Demo-Web-App.*sln'
+  solution: '**/asp-dotnet-pipeline-demo.*sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: Release
 
