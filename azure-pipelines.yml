@@ -8,9 +8,31 @@ trigger:
 
 pool: Default
 
+variables:
+  solution: '**/C#/Demo-Web-App.*sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: Release
+
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+- task: DotNetCoreCLI@2
+  displayName: Restore
+  inputs:
+    command: 'restore'
+    projects: $(solution)
+    feedsToUse: 'select'
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: 'build'
+    projects: $(solution)
+#- task: DotNetCoreCLI@2
+#displayName: Test
+#inputs:
+#command: 'test'
+#projects: '**/4-devops/RestaurantReviews/RRTests/*.csproj'
+
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
