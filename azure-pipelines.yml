@@ -9,8 +9,6 @@ trigger:
 pool: Default
 
 variables:
-  solution: '**/asp-dotnet-pipeline-demo/Properties/launchSettings.json'
-  buildPlatform: 'Any CPU'
   buildConfiguration: Release
 
 steps:
@@ -20,13 +18,11 @@ steps:
   displayName: Restore
   inputs:
     command: 'restore'
-    projects: $(solution)
     feedsToUse: 'select'
 - task: DotNetCoreCLI@2
   displayName: Build
   inputs:
     command: 'build'
-    projects: $(solution)
 #- task: DotNetCoreCLI@2
 #displayName: Test
 #inputs:
